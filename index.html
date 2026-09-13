@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeoJob — Trouvez le job qui vous correspond</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero-neo">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7">
+          <span class="pill pill-cyan mb-3"><i class="bi bi-stars"></i> +250 offres actives cette semaine</span>
+          <h1 class="display-5 mb-3">Trouvez le job qui vous <span class="text-gradient">correspond vraiment</span></h1>
+          <p class="text-muted-soft fs-5 mb-4">NeoJob connecte les talents et les entreprises à travers une plateforme rapide, claire et pensée pour les deux côtés du recrutement.</p>
+
+          <form id="hero-search-form" class="panel p-2 p-md-3 d-flex flex-column flex-md-row gap-2">
+            <div class="input-icon-group flex-grow-1">
+              <i class="bi bi-search"></i>
+              <input type="text" id="hero-search-title" class="form-control border-0 bg-transparent" placeholder="Titre, mot-clé (ex: développeur, design...)">
+            </div>
+            <div class="input-icon-group flex-grow-1">
+              <i class="bi bi-geo-alt"></i>
+              <input type="text" id="hero-search-city" class="form-control border-0 bg-transparent" placeholder="Ville">
+            </div>
+            <button type="submit" class="btn btn-neo-primary px-4">Rechercher</button>
+          </form>
+
+          <div class="d-flex gap-4 mt-4">
+            <div><span class="fw-bold fs-5" id="stat-jobs">--</span> <span class="text-muted-soft small">offres</span></div>
+            <div><span class="fw-bold fs-5" id="stat-companies">--</span> <span class="text-muted-soft small">entreprises</span></div>
+            <div><span class="fw-bold fs-5" id="stat-candidates">--</span> <span class="text-muted-soft small">candidats</span></div>
+          </div>
+        </div>
+
+        <div class="col-lg-5 d-none d-lg-block">
+          <div class="panel p-4">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <span class="company-badge">VD</span>
+              <div>
+                <div class="fw-semibold">Vertex Digital</div>
+                <div class="text-muted-soft small">Casablanca · CDI</div>
+              </div>
+              <span class="pill pill-mint ms-auto">Publiée</span>
+            </div>
+            <h6 class="mb-2">Développeur Front-End React</h6>
+            <p class="text-muted-soft small mb-3">Nous recherchons un développeur front-end pour renforcer notre équipe produit...</p>
+            <div class="d-flex flex-wrap gap-2 mb-3">
+              <span class="pill pill-violet">React</span>
+              <span class="pill pill-violet">JavaScript</span>
+              <span class="pill pill-violet">CSS</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+              <span class="text-gradient fw-bold">8 000 - 13 000 MAD</span>
+              <span class="btn btn-neo-outline btn-sm">Voir l'offre</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED JOBS -->
+  <section class="py-5">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <h2 class="h3 mb-1">Offres récentes</h2>
+          <p class="text-muted-soft mb-0">Les dernières opportunités publiées sur NeoJob.</p>
+        </div>
+        <a href="offres.html" class="btn btn-neo-outline">Voir toutes les offres <i class="bi bi-arrow-right ms-1"></i></a>
+      </div>
+      <div class="row g-4" id="featured-jobs-container"></div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="panel p-4 h-100">
+            <div class="pill pill-cyan mb-3">Étape 1</div>
+            <h5 class="mb-2">Créez votre profil</h5>
+            <p class="text-muted-soft small mb-0">Inscrivez-vous en tant que candidat ou recruteur en quelques secondes.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel p-4 h-100">
+            <div class="pill pill-violet mb-3">Étape 2</div>
+            <h5 class="mb-2">Trouvez ou publiez</h5>
+            <p class="text-muted-soft small mb-0">Parcourez les offres filtrées ou publiez une annonce en quelques clics.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="panel p-4 h-100">
+            <div class="pill pill-mint mb-3">Étape 3</div>
+            <h5 class="mb-2">Connectez-vous</h5>
+            <p class="text-muted-soft small mb-0">Suivez vos candidatures ou vos candidats depuis un tableau de bord clair.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA RECRUTEUR -->
+  <section class="py-5">
+    <div class="container">
+      <div class="panel p-5 text-center" style="background: linear-gradient(135deg, rgba(104,224,255,.08), rgba(139,125,255,.08));">
+        <h2 class="h3 mb-2">Vous recrutez ?</h2>
+        <p class="text-muted-soft mb-4">Publiez votre offre et accédez à un vivier de candidats qualifiés dès aujourd'hui.</p>
+        <a href="register.html" class="btn btn-neo-primary px-4">Publier une offre</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pages/index.js"></script>
+</body>
+</html>

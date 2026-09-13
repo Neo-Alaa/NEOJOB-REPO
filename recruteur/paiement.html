@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paiement — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main class="py-5">
+  <div class="container" style="max-width:1000px;">
+
+    <nav class="mb-4"><a href="../tarifs.html" class="text-muted-soft small"><i class="bi bi-arrow-left me-1"></i>Retour aux tarifs</a></nav>
+
+    <div id="payment-root">
+
+      <div class="row g-4">
+        <!-- Payment form -->
+        <div class="col-lg-7">
+          <div class="panel p-4 p-md-5">
+            <h1 class="h5 mb-4">Passer au plan Premium</h1>
+
+            <ul class="nav nav-pills gap-2 mb-4" id="method-tabs">
+              <li class="nav-item"><button type="button" class="btn btn-neo-outline btn-sm active" data-method="carte"><i class="bi bi-credit-card me-1"></i> Carte bancaire</button></li>
+              <li class="nav-item"><button type="button" class="btn btn-neo-outline btn-sm" data-method="virement"><i class="bi bi-bank me-1"></i> Virement bancaire</button></li>
+            </ul>
+
+            <!-- Card method -->
+            <form id="card-form">
+              <div class="row g-3">
+                <div class="col-12">
+                  <label class="form-label">Nom sur la carte</label>
+                  <input type="text" class="form-control" id="pay-name" placeholder="SARA BENNANI" required>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">Numéro de carte</label>
+                  <div class="input-icon-group">
+                    <i class="bi bi-credit-card"></i>
+                    <input type="text" class="form-control" id="pay-card-number" placeholder="4242 4242 4242 4242" inputmode="numeric" maxlength="19" required>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <label class="form-label">Date d'expiration</label>
+                  <input type="text" class="form-control" id="pay-expiry" placeholder="MM/AA" inputmode="numeric" maxlength="5" required>
+                </div>
+                <div class="col-6">
+                  <label class="form-label">CVC</label>
+                  <input type="text" class="form-control" id="pay-cvc" placeholder="123" inputmode="numeric" maxlength="3" required>
+                </div>
+                <div class="col-12 form-check mt-2">
+                  <input class="form-check-input" type="checkbox" id="pay-terms" required>
+                  <label class="form-check-label small text-muted-soft" for="pay-terms">J'accepte les conditions d'abonnement NeoJob Premium.</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-neo-primary w-100 mt-4" id="pay-submit-btn">
+                <i class="bi bi-lock-fill me-1"></i> Payer 358,80 MAD
+              </button>
+              <p class="text-muted-soft small text-center mt-3 mb-0">
+                <i class="bi bi-info-circle me-1"></i> Paiement simulé à des fins de démonstration — aucune transaction réelle n'est effectuée, aucune donnée bancaire n'est enregistrée.
+              </p>
+            </form>
+
+            <!-- Bank transfer method -->
+            <div id="transfer-panel" style="display:none;">
+              <div class="panel p-4 mb-4" style="background:var(--bg-panel-alt);">
+                <div class="d-flex justify-content-between py-2"><span class="text-muted-soft small">Bénéficiaire</span><span class="small fw-semibold">NeoJob SARL</span></div>
+                <div class="d-flex justify-content-between py-2 border-top divider-soft"><span class="text-muted-soft small">RIB</span><span class="small fw-semibold">230 780 0123456789012345 67</span></div>
+                <div class="d-flex justify-content-between py-2 border-top divider-soft"><span class="text-muted-soft small">Référence</span><span class="small fw-semibold" id="transfer-ref">—</span></div>
+              </div>
+              <button type="button" class="btn btn-neo-primary w-100" id="transfer-confirm-btn">J'ai effectué le virement</button>
+              <p class="text-muted-soft small text-center mt-3 mb-0">
+                <i class="bi bi-info-circle me-1"></i> Simulation — dans une vraie intégration, l'activation attendrait la confirmation bancaire.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Order summary -->
+        <div class="col-lg-5">
+          <div class="panel p-4 sticky-top" style="top:92px;">
+            <h6 class="mb-3">Récapitulatif</h6>
+            <div class="d-flex justify-content-between align-items-center mb-3 pb-3" style="border-bottom:1px solid var(--border-soft);">
+              <div>
+                <div class="fw-semibold">Plan Premium</div>
+                <div class="text-muted-soft small">Facturation mensuelle</div>
+              </div>
+              <span class="pill pill-violet"><i class="bi bi-stars"></i></span>
+            </div>
+            <div class="d-flex justify-content-between small mb-2">
+              <span class="text-muted-soft">Sous-total (HT)</span>
+              <span>299,00 MAD</span>
+            </div>
+            <div class="d-flex justify-content-between small mb-3">
+              <span class="text-muted-soft">TVA (20%)</span>
+              <span>59,80 MAD</span>
+            </div>
+            <div class="d-flex justify-content-between fw-bold pt-3" style="border-top:1px solid var(--border-soft);">
+              <span>Total (TTC)</span>
+              <span class="text-gradient">358,80 MAD</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/db.js"></script>
+<script src="../assets/js/notifications.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/components.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/recruteur-paiement.js"></script>
+</body>
+</html>

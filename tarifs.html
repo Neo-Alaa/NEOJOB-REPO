@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarifs — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main class="py-5">
+  <div class="container">
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-lg-7">
+        <span class="pill pill-violet mb-3"><i class="bi bi-building"></i> Pour les recruteurs</span>
+        <h1 class="h3 mb-2">Un plan pour chaque étape de votre recrutement</h1>
+        <p class="text-muted-soft mb-0">Commencez gratuitement, passez Premium quand vous en avez besoin.</p>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card">
+          <div class="pill pill-cyan mb-3">Gratuit</div>
+          <div class="price mb-1">0 MAD<span class="text-muted-soft fs-6 fw-normal">/mois</span></div>
+          <p class="text-muted-soft small mb-4">Pour démarrer et tester la plateforme.</p>
+          <ul class="mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> Jusqu'à 6 offres actives</li>
+            <li><i class="bi bi-check-circle-fill"></i> Candidatures illimitées</li>
+            <li><i class="bi bi-check-circle-fill"></i> Recherche de candidats (basique)</li>
+            <li><i class="bi bi-check-circle-fill"></i> Tableau de bord & statistiques</li>
+          </ul>
+          <button type="button" class="btn btn-neo-outline w-100" id="btn-free" disabled>Plan actuel</button>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card featured">
+          <div class="pill pill-violet mb-3"><i class="bi bi-stars"></i> Premium</div>
+          <div class="price mb-1">299 MAD<span class="text-muted-soft fs-6 fw-normal">/mois</span></div>
+          <p class="text-muted-soft small mb-4">Pour recruter sans limite, plus vite.</p>
+          <ul class="mb-4">
+            <li><i class="bi bi-check-circle-fill"></i> Offres actives illimitées</li>
+            <li><i class="bi bi-check-circle-fill"></i> Recherche de candidats avancée</li>
+            <li><i class="bi bi-check-circle-fill"></i> Offres mises en avant</li>
+            <li><i class="bi bi-check-circle-fill"></i> Support prioritaire</li>
+          </ul>
+          <button type="button" class="btn btn-neo-primary w-100" id="btn-premium">Passer Premium</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-muted-soft small mt-5" id="tarifs-note"></p>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pages/tarifs.js"></script>
+</body>
+</html>

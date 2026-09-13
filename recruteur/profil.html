@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil entreprise — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<div class="d-flex">
+  <aside id="site-sidebar" style="width:250px;" class="d-none d-lg-block flex-shrink-0"></aside>
+
+  <main class="flex-grow-1 p-3 p-lg-5" style="min-width:0;">
+    <button class="btn btn-neo-outline btn-sm d-lg-none mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+      <i class="bi bi-list me-1"></i> Menu
+    </button>
+
+    <div class="mb-4">
+      <h1 class="h4 mb-1">Profil entreprise</h1>
+      <p class="text-muted-soft mb-0">Ces informations apparaissent sur votre page publique et vos offres.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="panel p-4 p-md-5">
+          <form id="company-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nom de l'entreprise</label>
+                <input type="text" class="form-control" id="c-nom" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Secteur d'activité</label>
+                <input type="text" class="form-control" id="c-secteur">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Ville</label>
+                <input type="text" class="form-control" id="c-ville">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Site web</label>
+                <input type="text" class="form-control" id="c-siteweb" placeholder="www.exemple.com">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Description</label>
+                <textarea class="form-control" id="c-description" rows="4" placeholder="Présentez votre entreprise en quelques lignes..."></textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Vidéo « Une journée chez nous » (lien YouTube)</label>
+                <input type="text" class="form-control" id="c-video" placeholder="https://www.youtube.com/watch?v=...">
+                <div class="form-text text-muted-soft">Affichée sur votre page publique si le lien est valide.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-neo-primary mt-4">Enregistrer les modifications</button>
+          </form>
+        </div>
+
+        <div class="panel p-4 p-md-5 mt-4">
+          <h6 class="mb-1">Galerie photos</h6>
+          <p class="text-muted-soft small mb-3">Montrez vos locaux et votre équipe sur votre page entreprise publique.</p>
+          <div class="row g-2 mb-3" id="photo-gallery-manage"></div>
+          <label class="btn btn-neo-outline btn-sm mb-0">
+            <i class="bi bi-plus-lg me-1"></i> Ajouter des photos
+            <input type="file" id="c-photos-input" accept="image/*" multiple class="visually-hidden">
+          </label>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="panel p-4 text-center">
+          <div class="position-relative d-inline-block mb-3">
+            <div id="company-avatar" style="width:72px;height:72px;font-size:1.4rem;"></div>
+            <label class="photo-upload-trigger" for="c-logo-input" title="Changer le logo" aria-label="Changer le logo">
+              <i class="bi bi-camera-fill"></i>
+            </label>
+            <input type="file" id="c-logo-input" accept="image/*" class="visually-hidden">
+          </div>
+          <div class="fw-semibold" id="company-name">—</div>
+          <div class="text-muted-soft small" id="company-email">—</div>
+        </div>
+
+        <div class="panel p-4 mt-3">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h6 class="mb-0">Facturation</h6>
+            <span class="pill" id="billing-plan-pill">--</span>
+          </div>
+          <div id="billing-history" class="d-flex flex-column gap-2"></div>
+          <a href="../tarifs.html" class="btn btn-neo-outline btn-sm w-100 mt-3" id="billing-cta">Voir les plans</a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" style="background:var(--bg-panel); width:260px;">
+  <div class="offcanvas-header">
+    <span class="fw-semibold">Menu</span>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+  </div>
+  <div class="offcanvas-body pt-0" id="site-sidebar-mobile"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/db.js"></script>
+<script src="../assets/js/notifications.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/components.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/recruteur-profil.js"></script>
+</body>
+</html>

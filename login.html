@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main class="d-flex align-items-center py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-7 col-lg-5">
+
+        <div class="panel p-4 p-md-5">
+          <div class="text-center mb-4">
+            <span class="logo-mark mx-auto mb-3" style="width:44px;height:44px;font-size:1.2rem;">N</span>
+            <h1 class="h4 mb-1">Bon retour parmi nous</h1>
+            <p class="text-muted-soft small mb-0">Connectez-vous à votre espace NeoJob.</p>
+          </div>
+
+          <form id="login-form" novalidate>
+            <div class="mb-3">
+              <label class="form-label">Adresse email</label>
+              <div class="input-icon-group">
+                <i class="bi bi-envelope"></i>
+                <input type="email" class="form-control" id="login-email" placeholder="vous@exemple.com" required>
+              </div>
+            </div>
+            <div class="mb-2">
+              <label class="form-label">Mot de passe</label>
+              <div class="input-icon-group">
+                <i class="bi bi-lock"></i>
+                <input type="password" class="form-control has-toggle" id="login-password" placeholder="••••••••" required>
+                <button type="button" class="password-toggle-btn" data-target="login-password" aria-label="Afficher le mot de passe">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div id="login-error" class="text-danger small mb-3" style="display:none;"></div>
+            <button type="submit" class="btn btn-neo-primary w-100 mt-3">Se connecter</button>
+          </form>
+
+          <p class="text-center text-muted-soft small mt-4 mb-0">
+            Pas encore de compte ? <a href="register.html" class="text-gradient fw-semibold">Créer un compte</a>
+          </p>
+        </div>
+
+        <div class="panel p-4 mt-3">
+          <button class="btn btn-neo-ghost btn-sm w-100 d-flex justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#demoAccounts">
+            <span><i class="bi bi-info-circle me-1"></i> Comptes de démonstration</span>
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="collapse mt-3" id="demoAccounts">
+            <div class="d-flex flex-column gap-2 small" id="demo-accounts-list"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pages/login.js"></script>
+</body>
+</html>

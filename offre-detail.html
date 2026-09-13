@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Détail de l'offre — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="container py-4" id="job-detail-root">
+    <div class="skeleton" style="height:60px;" class="mb-3"></div>
+  </div>
+</main>
+
+<!-- Apply Modal -->
+<div class="modal fade" id="applyModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content panel border-0">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title">Postuler à cette offre</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body p-4">
+        <form id="apply-form">
+          <div class="mb-3">
+            <label class="form-label">Lettre de motivation</label>
+            <textarea id="apply-message" class="form-control" rows="5" placeholder="Expliquez en quelques lignes pourquoi vous êtes le candidat idéal..." required></textarea>
+          </div>
+          <div class="mb-1">
+            <label class="form-label">CV (PDF)</label>
+            <input type="file" id="apply-cv" class="form-control" accept=".pdf">
+            <div class="form-text text-muted-soft">Simulation : le fichier n'est pas réellement téléversé pour le moment.</div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button type="button" class="btn btn-neo-ghost btn-sm" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-neo-primary btn-sm px-4" id="apply-submit-btn">Envoyer ma candidature</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pages/offre-detail.js"></script>
+</body>
+</html>

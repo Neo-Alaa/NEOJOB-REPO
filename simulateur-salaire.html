@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulateur de salaire — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main>
+  <section class="py-5">
+    <div class="container" style="max-width:960px;">
+      <div class="text-center mb-5">
+        <span class="pill pill-violet mb-3 d-inline-flex"><i class="bi bi-calculator"></i> Outil gratuit</span>
+        <h1 class="h3 mb-2">Simulateur de salaire</h1>
+        <p class="text-muted-soft mb-0">Estimez une fourchette de rémunération selon le poste, la ville et l'expérience — basé sur les offres publiées sur NeoJob.</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <div class="panel p-4 p-md-5">
+            <form id="simulator-form">
+              <div class="mb-3">
+                <label class="form-label">Catégorie de poste</label>
+                <select id="sim-categorie" class="form-select" required>
+                  <option value="">Choisir une catégorie</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Ville</label>
+                <select id="sim-ville" class="form-select">
+                  <option value="">Autre ville</option>
+                  <option value="Casablanca">Casablanca</option>
+                  <option value="Rabat">Rabat</option>
+                  <option value="Marrakech">Marrakech</option>
+                  <option value="Tanger">Tanger</option>
+                  <option value="Fès">Fès</option>
+                  <option value="Agadir">Agadir</option>
+                </select>
+              </div>
+              <div class="mb-4">
+                <label class="form-label">Niveau d'expérience</label>
+                <select id="sim-experience" class="form-select">
+                  <option value="debutant">Débutant (0-2 ans)</option>
+                  <option value="intermediaire" selected>Intermédiaire (2-5 ans)</option>
+                  <option value="senior">Senior (5+ ans)</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-neo-primary w-100">
+                <i class="bi bi-calculator me-1"></i> Estimer le salaire
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-7">
+          <div class="panel p-4 p-md-5 h-100 d-flex flex-column justify-content-center" id="simulator-result">
+            <div class="empty-state">
+              <i class="bi bi-graph-up-arrow"></i>
+              Remplissez le formulaire pour voir une estimation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pages/simulateur-salaire.js"></script>
+</body>
+</html>

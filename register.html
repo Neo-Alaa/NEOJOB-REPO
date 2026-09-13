@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Créer un compte — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+<style>
+  .role-option{
+    cursor: pointer;
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 1.1rem;
+    background: var(--bg-panel-alt);
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .role-option i{ font-size: 1.4rem; color: var(--text-muted); }
+  .role-option.active{
+    border-color: var(--cyan);
+    background: rgba(95,216,255,.07);
+  }
+  .role-option.active i{ color: var(--cyan); }
+</style>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main class="d-flex align-items-center py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+
+        <div class="panel p-4 p-md-5">
+          <div class="text-center mb-4">
+            <span class="logo-mark mx-auto mb-3" style="width:44px;height:44px;font-size:1.2rem;">N</span>
+            <h1 class="h4 mb-1">Créer votre compte</h1>
+            <p class="text-muted-soft small mb-0">Rejoignez NeoJob en tant que candidat ou recruteur.</p>
+          </div>
+
+          <form id="register-form" novalidate>
+
+            <label class="form-label">Je suis...</label>
+            <div class="row g-2 mb-4">
+              <div class="col-6">
+                <div class="role-option active" data-role="candidat">
+                  <i class="bi bi-person-badge d-block mb-2"></i>
+                  <div class="fw-semibold">Candidat</div>
+                  <div class="text-muted-soft small">Je cherche un emploi</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="role-option" data-role="recruteur">
+                  <i class="bi bi-building d-block mb-2"></i>
+                  <div class="fw-semibold">Recruteur</div>
+                  <div class="text-muted-soft small">Je publie des offres</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Candidat fields -->
+            <div id="fields-candidat" class="row g-3 mb-1">
+              <div class="col-md-6">
+                <label class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="reg-prenom" placeholder="Yassine">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Nom</label>
+                <input type="text" class="form-control" id="reg-nom" placeholder="El Amrani">
+              </div>
+            </div>
+
+            <!-- Recruteur fields -->
+            <div id="fields-recruteur" class="row g-3 mb-1" style="display:none;">
+              <div class="col-md-6">
+                <label class="form-label">Nom de l'entreprise</label>
+                <input type="text" class="form-control" id="reg-entreprise" placeholder="Vertex Digital">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Secteur d'activité</label>
+                <input type="text" class="form-control" id="reg-secteur" placeholder="Technologie">
+              </div>
+            </div>
+
+            <div class="row g-3 mt-1">
+              <div class="col-12">
+                <label class="form-label">Adresse email</label>
+                <div class="input-icon-group">
+                  <i class="bi bi-envelope"></i>
+                  <input type="email" class="form-control" id="reg-email" placeholder="vous@exemple.com" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Mot de passe</label>
+                <div class="input-icon-group">
+                  <i class="bi bi-lock"></i>
+                  <input type="password" class="form-control has-toggle" id="reg-password" placeholder="••••••••" required>
+                  <button type="button" class="password-toggle-btn" data-target="reg-password" aria-label="Afficher le mot de passe">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Confirmer</label>
+                <div class="input-icon-group">
+                  <i class="bi bi-lock"></i>
+                  <input type="password" class="form-control has-toggle" id="reg-password-confirm" placeholder="••••••••" required>
+                  <button type="button" class="password-toggle-btn" data-target="reg-password-confirm" aria-label="Afficher le mot de passe">
+                    <i class="bi bi-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div id="register-error" class="text-danger small mt-3" style="display:none;"></div>
+            <button type="submit" class="btn btn-neo-primary w-100 mt-4">Créer mon compte</button>
+          </form>
+
+          <p class="text-center text-muted-soft small mt-4 mb-0">
+            Déjà inscrit ? <a href="login.html" class="text-gradient fw-semibold">Se connecter</a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pages/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rechercher des candidats — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<div class="d-flex">
+  <aside id="site-sidebar" style="width:250px;" class="d-none d-lg-block flex-shrink-0"></aside>
+
+  <main class="flex-grow-1 p-3 p-lg-5" style="min-width:0;">
+    <button class="btn btn-neo-outline btn-sm d-lg-none mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+      <i class="bi bi-list me-1"></i> Menu
+    </button>
+
+    <div class="mb-4">
+      <h1 class="h4 mb-1">Rechercher des candidats</h1>
+      <p class="text-muted-soft mb-0">Parcourez les profils de la CVthèque NeoJob et trouvez votre prochain talent.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Filters -->
+      <div class="col-lg-3">
+        <div class="panel p-4 sticky-top" style="top:92px;">
+          <h6 class="mb-3 d-flex align-items-center gap-2"><i class="bi bi-sliders"></i> Filtres</h6>
+          <form id="filters-form" onsubmit="return false;">
+            <div class="mb-3">
+              <label class="form-label">Mot-clé</label>
+              <div class="input-icon-group">
+                <i class="bi bi-search"></i>
+                <input type="text" id="f-q" class="form-control" placeholder="Nom, bio...">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Ville</label>
+              <div class="input-icon-group">
+                <i class="bi bi-geo-alt"></i>
+                <input type="text" id="f-ville" class="form-control" placeholder="Casablanca, Rabat...">
+              </div>
+            </div>
+            <div class="mb-4">
+              <label class="form-label">Compétence</label>
+              <select id="f-competence" class="form-select">
+                <option value="">Toutes les compétences</option>
+              </select>
+            </div>
+            <button type="button" id="f-reset" class="btn btn-neo-outline btn-sm w-100">
+              <i class="bi bi-arrow-counterclockwise me-1"></i> Réinitialiser
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="col-lg-9">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-muted-soft small" id="results-count">-- résultats</span>
+        </div>
+
+        <div class="row g-4" id="candidates-container"></div>
+
+        <nav class="mt-4 d-flex justify-content-center">
+          <ul class="pagination" id="pagination-container"></ul>
+        </nav>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" style="background:var(--bg-panel); width:260px;">
+  <div class="offcanvas-header">
+    <span class="fw-semibold">Menu</span>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+  </div>
+  <div class="offcanvas-body pt-0" id="site-sidebar-mobile"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/db.js"></script>
+<script src="../assets/js/notifications.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/components.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/pages/rechercher-candidats.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil entreprise — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main>
+  <div class="container py-4" id="company-root">
+    <div class="skeleton" style="height:60px;"></div>
+  </div>
+</main>
+
+<!-- Leave a review -->
+<div class="modal fade" id="reviewFormModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content panel border-0">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title">Laisser un avis</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body p-4">
+        <p class="text-muted-soft small">Votre nom ne sera jamais affiché publiquement — seul votre intitulé de poste (facultatif) est visible. Votre avis sera publié après modération.</p>
+        <form id="review-form">
+          <div class="mb-3">
+            <label class="form-label">Votre poste (facultatif)</label>
+            <input type="text" class="form-control" id="rv-poste" placeholder="Ex: Ancien Développeur, Stagiaire...">
+          </div>
+          <div class="row g-3 mb-3">
+            <div class="col-6 col-md-3">
+              <label class="form-label d-block">Note globale</label>
+              <div id="rv-global-wrap"></div>
+            </div>
+            <div class="col-6 col-md-3">
+              <label class="form-label d-block">Ambiance</label>
+              <div id="rv-ambiance-wrap"></div>
+            </div>
+            <div class="col-6 col-md-3">
+              <label class="form-label d-block">Rémunération</label>
+              <div id="rv-remuneration-wrap"></div>
+            </div>
+            <div class="col-6 col-md-3">
+              <label class="form-label d-block">Équilibre vie pro/perso</label>
+              <div id="rv-equilibre-wrap"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Titre de votre avis</label>
+            <input type="text" class="form-control" id="rv-titre" placeholder="Résumez votre expérience en une phrase" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Avantages</label>
+            <textarea class="form-control" id="rv-avantages" rows="3" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Inconvénients</label>
+            <textarea class="form-control" id="rv-inconvenients" rows="3" required></textarea>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="rv-recommande" checked>
+            <label class="form-check-label small text-muted-soft" for="rv-recommande">Je recommande cette entreprise</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button type="button" class="btn btn-neo-ghost btn-sm" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-neo-primary btn-sm px-4" id="review-submit-btn">Envoyer mon avis</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Photo lightbox -->
+<div class="modal fade" id="photoLightbox" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <img src="" id="lightbox-img" class="w-100" style="border-radius:var(--radius-lg);">
+    </div>
+  </div>
+</div>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/pages/entreprise.js"></script>
+</body>
+</html>

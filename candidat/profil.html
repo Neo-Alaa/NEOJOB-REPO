@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon profil — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="../assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<div class="d-flex">
+  <aside id="site-sidebar" style="width:250px;" class="d-none d-lg-block flex-shrink-0"></aside>
+
+  <main class="flex-grow-1 p-3 p-lg-5" style="min-width:0;">
+    <button class="btn btn-neo-outline btn-sm d-lg-none mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+      <i class="bi bi-list me-1"></i> Menu
+    </button>
+
+    <div class="mb-4">
+      <h1 class="h4 mb-1">Mon profil</h1>
+      <p class="text-muted-soft mb-0">Ces informations seront visibles par les recruteurs lors de vos candidatures.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="panel p-4 p-md-5">
+          <form id="profile-form">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Prénom</label>
+                <input type="text" class="form-control" id="p-prenom">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Nom</label>
+                <input type="text" class="form-control" id="p-nom">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Ville</label>
+                <input type="text" class="form-control" id="p-ville">
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Téléphone</label>
+                <input type="tel" class="form-control" id="p-telephone">
+              </div>
+              <div class="col-12">
+                <label class="form-label">Bio / à propos</label>
+                <textarea class="form-control" id="p-bio" rows="4" placeholder="Parlez de votre parcours en quelques lignes..."></textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Vidéo de présentation (lien YouTube)</label>
+                <input type="text" class="form-control" id="p-video" placeholder="https://www.youtube.com/watch?v=...">
+                <div class="form-text text-muted-soft">Une courte vidéo pour vous présenter aux recruteurs, affichée sur votre profil public.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Compétences</label>
+                <p class="text-muted-soft small mb-2">Passez un mini-quiz sur une compétence pour obtenir le badge « Compétence vérifiée ».</p>
+                <div class="d-flex flex-wrap gap-2 mb-2" id="skills-list"></div>
+                <div class="input-icon-group">
+                  <i class="bi bi-plus-lg"></i>
+                  <input type="text" class="form-control" id="skill-input" list="skills-datalist" placeholder="Tapez une compétence puis Entrée">
+                  <datalist id="skills-datalist"></datalist>
+                </div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">CV (PDF)</label>
+                <input type="file" class="form-control" id="p-cv" accept=".pdf">
+                <div class="form-text text-muted-soft" id="cv-current">Aucun CV téléversé.</div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-neo-primary mt-4">Enregistrer les modifications</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="panel p-4 text-center">
+          <div class="position-relative d-inline-block mb-3">
+            <div id="profile-avatar" style="width:72px;height:72px;font-size:1.4rem;"></div>
+            <label class="photo-upload-trigger" for="p-photo" title="Changer la photo" aria-label="Changer la photo">
+              <i class="bi bi-camera-fill"></i>
+            </label>
+            <input type="file" id="p-photo" accept="image/*" class="visually-hidden">
+          </div>
+          <div class="fw-semibold" id="profile-fullname">—</div>
+          <div class="text-muted-soft small" id="profile-email">—</div>
+          <a href="#" id="view-public-profile-link" class="btn btn-neo-outline btn-sm w-100 mt-3">
+            <i class="bi bi-printer me-1"></i> Voir / imprimer mon CV
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Skill verification quiz -->
+<div class="modal fade" id="quizModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content panel border-0">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title"><i class="bi bi-patch-question me-2"></i>Quiz — <span id="quiz-skill-name"></span></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+      </div>
+      <div class="modal-body p-4">
+        <div id="quiz-questions"></div>
+        <div id="quiz-result" style="display:none;"></div>
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button type="button" class="btn btn-neo-primary btn-sm px-4" id="quiz-submit-btn">Valider mes réponses</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileSidebar" style="background:var(--bg-panel); width:260px;">
+  <div class="offcanvas-header">
+    <span class="fw-semibold">Menu</span>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+  </div>
+  <div class="offcanvas-body pt-0" id="site-sidebar-mobile"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/db.js"></script>
+<script src="../assets/js/notifications.js"></script>
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/components.js"></script>
+<script src="../assets/js/main.js"></script>
+<script src="../assets/js/quiz-data.js"></script>
+<script src="../assets/js/pages/candidat-profil.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>À propos — NeoJob</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link href="assets/css/theme.css" rel="stylesheet">
+<script>try{if(localStorage.getItem("neojob_theme")==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}</script>
+</head>
+<body>
+<div class="bg-ambient"></div>
+
+<header id="site-header"></header>
+
+<main>
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-lg-8">
+          <span class="pill pill-cyan mb-3"><i class="bi bi-stars"></i> Notre mission</span>
+          <h1 class="display-6 mb-3">Rapprocher les <span class="text-gradient">talents</span> des entreprises qui comptent</h1>
+          <p class="text-muted-soft fs-5 mb-0">NeoJob est né d'un constat simple : trouver un emploi — ou le bon candidat — prend encore trop de temps et manque de clarté. Nous construisons une plateforme rapide, transparente et pensée pour les deux côtés du recrutement.</p>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile text-center">
+            <div class="stat-value text-gradient" id="stat-jobs">--</div>
+            <div class="text-muted-soft small mt-1">Offres actives</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile text-center">
+            <div class="stat-value text-gradient" id="stat-companies">--</div>
+            <div class="text-muted-soft small mt-1">Entreprises</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile text-center">
+            <div class="stat-value text-gradient" id="stat-candidates">--</div>
+            <div class="text-muted-soft small mt-1">Candidats inscrits</div>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat-tile text-center">
+            <div class="stat-value text-gradient" id="stat-categories">--</div>
+            <div class="text-muted-soft small mt-1">Secteurs couverts</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 mb-5">
+        <div class="col-md-6 col-lg-3">
+          <div class="panel p-4 h-100">
+            <div class="pill pill-cyan mb-3"><i class="bi bi-lightning-charge"></i></div>
+            <h6 class="mb-2">Rapidité</h6>
+            <p class="text-muted-soft small mb-0">Publiez une offre ou postulez en quelques minutes, sans friction inutile.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="panel p-4 h-100">
+            <div class="pill pill-violet mb-3"><i class="bi bi-eye"></i></div>
+            <h6 class="mb-2">Transparence</h6>
+            <p class="text-muted-soft small mb-0">Statut de candidature clair, offres modérées, aucune surprise.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="panel p-4 h-100">
+            <div class="pill pill-mint mb-3"><i class="bi bi-people"></i></div>
+            <h6 class="mb-2">Accessibilité</h6>
+            <p class="text-muted-soft small mb-0">Une expérience simple, pensée pour les candidats comme pour les recruteurs.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="panel p-4 h-100">
+            <div class="pill pill-orange mb-3"><i class="bi bi-shield-check"></i></div>
+            <h6 class="mb-2">Confiance</h6>
+            <p class="text-muted-soft small mb-0">Chaque offre est vérifiée par notre équipe avant publication.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel p-5 text-center" style="background: linear-gradient(135deg, rgba(95,216,255,.08), rgba(154,134,255,.08));">
+        <h2 class="h3 mb-2">Envie de nous rejoindre ?</h2>
+        <p class="text-muted-soft mb-4">Que vous cherchiez un emploi ou un talent, NeoJob vous accompagne.</p>
+        <div class="d-flex justify-content-center gap-2 flex-wrap">
+          <a href="register.html" class="btn btn-neo-primary px-4">Créer un compte</a>
+          <a href="contact.html" class="btn btn-neo-outline px-4">Nous contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/db.js"></script>
+<script src="assets/js/notifications.js"></script>
+<script src="assets/js/auth.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  NeoComponents.renderHeader({ rootPrefix: '' });
+  NeoComponents.renderFooter({ rootPrefix: '' });
+  document.getElementById('stat-jobs').textContent = Jobs.getPublished().length;
+  document.getElementById('stat-companies').textContent = Companies.getAll().length;
+  document.getElementById('stat-candidates').textContent = Candidates.getAll().length;
+  document.getElementById('stat-categories').textContent = Categories.getAll().length;
+</script>
+</body>
+</html>
